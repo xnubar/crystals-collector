@@ -1,0 +1,94 @@
+body {
+    background:#A8D8DC;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.container .header {
+    background: #C86E33;
+    height: 68px;
+    width: 270px;
+    text-align: center;
+    padding: 16px 0;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.container .header .header-title {
+    color:#fff;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.container .instruction {
+    background: #FBE3C7;
+    padding: 10px;
+    height: 380px;
+    width: 470px;
+    margin-bottom: 10px;
+}
+
+.container .instruction p {
+    color: rgb(10, 92, 10);
+    font-weight: bold;
+    line-height: 1.5em;
+    margin-bottom: 20px;
+}
+
+.container .expected-result {
+    height: 100px;
+}
+.container .expected-result .expected-result-score {
+    background:#47B078;
+    width: 200px;
+    height: 90px;
+    color:rgb(10, 10, 65);
+    float: left;
+    margin-right: 10px;
+}
+
+.container .expected-result .wins-losses {
+    background:	#1CF6F9;
+    color:rgb(10, 10, 65);
+    text-align: center;
+    padding: 26px 0;
+    height: 90px;
+    width: 100px;
+    float: left;
+    box-sizing: border-box;
+}
+.container .crystal-imgs {
+    clear: both;
+    margin-bottom: 10px;
+}
+.container .crystal-imgs img {
+    margin-right: 5px;
+    width: 80px;
+    height: 75px;
+}
+
+.container .result .result-header {
+    background: #14858D;
+    color: #fff;
+    width: 200px;
+    height: 26px;
+    margin-bottom: 5px;
+    padding: 5px 3px;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.container .result .result-score-container {
+    height: 90px;
+    width: 200px;
+    background: #14858D;
+    color: #fff;
+    font-weight: bold;
+    font-size: 50px;
+    padding: 5px;
+    box-sizing: border-box;
+   
+}
