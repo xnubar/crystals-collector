@@ -48,6 +48,7 @@ body {
     color:rgb(10, 10, 65);
     float: left;
     margin-right: 10px;
+    font-size: 40px;
 }
 
 .container .expected-result .wins-losses {
@@ -91,4 +92,9 @@ body {
     padding: 5px;
     box-sizing: border-box;
    
+}
+
+
+.container .expected-result .wins-losses .user-result {
+    display: none;
 }
