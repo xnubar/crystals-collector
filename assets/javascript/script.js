@@ -18,8 +18,6 @@ $(document).ready(function () {
                         num = this.randomNum(1, 12);
                     }
                     arr.push(num);
-
-
                 }
             }
             return arr;
@@ -27,6 +25,10 @@ $(document).ready(function () {
     }
 
     class Crystal {
+        constructor() {
+            this.audio = new Audio("../assets/musics/addScore.mp3");
+            this.reset = false;
+        }
 
         setExpectedScore(div) {
             let num = Random.randomNum(19, 120);
@@ -41,19 +43,36 @@ $(document).ready(function () {
                 $(arr[j]).data("data", randsArr[j])
             }
         }
+        reStart(expected, userScore, userResult) {
+            this.setExpectedScore(expected);
+            userScore.html("0");
+            $(userResult).hide();
+            this.reset = false;
+        }
         checkScore(expected, userScore, wins, losses, userResult) {
+            if (!this.audio.paused) {
+                this.audio.pause();
+            }
+
             let expectedInt = parseInt($(expected).html())
             let userScoreInt = parseInt($(userScore).html())
+
             if (expectedInt === userScoreInt) {
+                this.audio = new Audio("../assets/musics/youWon.mp3")
                 wins.html((parseInt(wins.html()) + 1));
                 $(userResult).html("You won!!!")
                 $(userResult).show();
+                this.reset = true;
             } else if (expectedInt < userScoreInt) {
+                this.audio = new Audio("../assets/musics/youLost.mp3")
                 losses.html((parseInt(losses.html())) + 1)
                 $(userResult).html("You lost!!!")
                 $(userResult).show();
+                this.reset = true;
+            } else {
+                this.audio = new Audio("../assets/musics/addScore.mp3")
             }
-
+            this.audio.play();
 
         }
 
@@ -68,15 +87,20 @@ $(document).ready(function () {
     var crystal = new Crystal();
     crystal.setExpectedScore(expectedResultScore);
     crystal.setValueToCrystals(crystals);
+    var audio;
 
 
     crystals.on("click", function () {
-        if (userScore.html().length > 0) {
-            userScore.html(parseInt(userScore.html()) + parseInt($(this).data("data")));
+        if (!crystal.reset) {
+            if (userScore.html().length > 0) {
+                userScore.html(parseInt(userScore.html()) + parseInt($(this).data("data")));
+            } else {
+                userScore.html(parseInt($(this).data("data")));
+            }
+            crystal.checkScore(expectedResultScore, userScore, wins, losses, userResult)
         } else {
-            userScore.html(parseInt($(this).data("data")));
+            crystal.reStart(expectedResultScore, userScore, userResult)
         }
-        crystal.checkScore(expectedResultScore, userScore, wins, losses, userResult)
     })
 
 })
