@@ -91,12 +91,12 @@ $(document).ready(function () {
 
 
     crystals.on("click", function () {
-        if (!https://xnubar.github.io/Star-Wars/
-            ihttps://xnubar.github.io/Star-Wars/
-             https://xnubar.github.io/Star-Wars/is).data("data")));
-            }https://xnubar.github.io/Star-Wars/
-             https://xnubar.github.io/Star-Wars/
-            }https://xnubar.github.io/Star-Wars/
+        if (!crystal.reset) {
+            if (userScore.html().length > 0) {
+                userScore.html(parseInt(userScore.html()) + parseInt($(this).data("data")));
+            } else {
+                userScore.html(parseInt($(this).data("data")));
+            }
             crystal.checkScore(expectedResultScore, userScore, wins, losses, userResult)
         } else {
             crystal.reStart(expectedResultScore, userScore, userResult)
