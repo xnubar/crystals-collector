@@ -58,19 +58,19 @@ $(document).ready(function () {
             let userScoreInt = parseInt($(userScore).html())
 
             if (expectedInt === userScoreInt) {
-                this.audio = new Audio("../assets/musics/youWon.mp3")
+                this.audio = new Audio("./assets/musics/youWon.mp3")
                 wins.html((parseInt(wins.html()) + 1));
                 $(userResult).html("You won!!!")
                 $(userResult).show();
                 this.reset = true;
             } else if (expectedInt < userScoreInt) {
-                this.audio = new Audio("../assets/musics/youLost.mp3")
+                this.audio = new Audio("./assets/musics/youLost.mp3")
                 losses.html((parseInt(losses.html())) + 1)
                 $(userResult).html("You lost!!!")
                 $(userResult).show();
                 this.reset = true;
             } else {
-                this.audio = new Audio("../assets/musics/addScore.mp3")
+                this.audio = new Audio("./assets/musics/addScore.mp3")
             }
             this.audio.play();
 
